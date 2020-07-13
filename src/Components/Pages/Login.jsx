@@ -12,13 +12,15 @@ const authentication = e => {
     "password": form.password.value
   }
 
-  Axios.post('https://api-edteam.alejogs4.now.sh/login', data)
+  Axios.post(`${process.env.REACT_APP_API_USER}/login`, data)
     .then(r => {
       localStorage.setItem('token', r.data.token)
       window.location = "/"
     }
     )
-    .catch(e => console.log(e))
+    .catch(e => {
+      alert("error al iniciar sesion")
+    })
 }
 
 const Login = () => (

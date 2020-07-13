@@ -13,7 +13,7 @@ const registration = e => {
     "password": form.password.value
   }
 
-  Axios.post(`https://api-edteam.alejogs4.now.sh/signup`, data)
+  Axios.post(`${process.env.REACT_APP_API_USER}/signup`, data)
     .then(() => {
       alert("Usuario creado")
       window.location = "/login"
